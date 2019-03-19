@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "UploadFile";
+}
+
+
+
+
+@using (Html.BeginForm("UploadFile", "UploadFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+        <section class="container">
+            <div class="col-md-8 col-md-offset-4">
+                <h2>Enviar Arquivo de Log </h2>
+                <div class="form-control-static">
+                    <input type="file" name="postedFile" />
+                </div>
+
+                <div class="form-control-static">
+                    <input class="btn-success " type="submit" value="Enviar" />
+                </div>
+            </div>
+
+        </section>
+        
+    
+
+}
+
+

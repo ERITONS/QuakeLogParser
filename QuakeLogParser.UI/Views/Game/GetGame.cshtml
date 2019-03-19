@@ -1,0 +1,57 @@
+﻿@model IEnumerable<QuakeLogParser.Api.Models.Game>
+
+@{
+    ViewBag.Title = "GetGame";
+}
+
+<h2>Game</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalKills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Players)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kills)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalKills)
+            </td>
+            <td>
+                <ul class="list-group">
+                    @foreach (var player in item.Players)
+                    {
+                        <li>
+                            @Html.DisplayFor(modelItem => player.Nome)
+                        </li>
+                    }
+                </ul>
+
+            </td>
+            <td>
+                <ul class="list-group">
+                    @foreach (var kill in item.Kills)
+                    {
+                        <li>
+                            @Html.DisplayFor(modelItem => kill.Player.Nome)
+                            @Html.DisplayFor(modelItem => kill.Kills)
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    }
+</table>
